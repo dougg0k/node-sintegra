@@ -18,6 +18,10 @@
 	],
 	"author": "Douglas Galdino",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dougg0k/node-sintegra"
+	},
 	"dependencies": {
 		"cpf-cnpj-validator": "^1.0.2",
 		"jimp": "^0.14.0",
