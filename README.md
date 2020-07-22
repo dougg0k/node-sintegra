@@ -8,10 +8,10 @@ O bypass do captcha é feito utilizando OCR com TesseractJs, porém o tempo de c
 const { acessarSintegra } = require('node-sintegra');
 
 try {
-	const data = await acessarSintegra(cnpj: string, estado: string);
-	...
+  const data = await acessarSintegra(cnpj: string, estado: string);
+  ...
 } catch(err) {
-	...
+  ...
 }
 ```
 
