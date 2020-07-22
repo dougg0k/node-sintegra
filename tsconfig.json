@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"target": "ES2019",
+		"module": "commonjs",
+		"lib": ["ES2019"],
+		"sourceMap": true,
+		"outDir": "./build",
+		"rootDir": "./src",
+		"baseUrl": ".",
+		"moduleResolution": "node",
+		"removeComments": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowSyntheticDefaultImports": true,
+		"preserveConstEnums": true,
+		"suppressImplicitAnyIndexErrors": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"preserveSymlinks": true,
+		"noImplicitAny": false,
+		"declaration": true,
+		"typeRoots": ["src/typings", "node_modules/@types"]
+	},
+	"exclude": ["node_modules", "build"],
+	"include": ["src", "test"]
+}
