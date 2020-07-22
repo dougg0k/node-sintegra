@@ -1,6 +1,9 @@
 import { isCnpjValid } from "../helpers/cnpj";
 
 export function validateEstado(estado: string): void {
+	if (!estado) {
+		throw new Error("Sigla estado não pode ser null ou undefined");
+	}
 	if (typeof estado !== "string") {
 		throw new Error("Utilize o tipo string em estado");
 	}
@@ -13,6 +16,9 @@ export function validateEstado(estado: string): void {
 }
 
 export function validateCnpj(cnpj: string): void {
+	if (!cnpj) {
+		throw new Error("CNPJ não pode ser null ou undefined");
+	}
 	if (!isCnpjValid(cnpj)) {
 		throw new Error("CNPJ Invalido");
 	}

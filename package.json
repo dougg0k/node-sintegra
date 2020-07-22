@@ -1,6 +1,6 @@
 {
 	"name": "node-sintegra",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "Biblioteca para fazer consulta do Sintegra por CNPJ e Estado",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
