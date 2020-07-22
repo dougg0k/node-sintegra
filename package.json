@@ -52,8 +52,7 @@
 	},
 	"config": {
 		"ghooks": {
-			"pre-commit": "lint-staged",
-			"pre-push": "npm version patch"
+			"pre-commit": "npm version patch --no-git-tag-version && lint-staged"
 		}
 	},
 	"lint-staged": {
