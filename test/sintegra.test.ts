@@ -66,7 +66,15 @@ describe("test sintegra", () => {
 			await acessarSintegra("1234", "SP");
 		} catch (err) {
 			expect(err).toBeInstanceOf(Error);
-			expect(err).toHaveProperty("message", "CNPJ Invalido");
+			expect(err).toHaveProperty("message", "CNPJ Inválido");
+		}
+	});
+	test("not supported", async () => {
+		try {
+			await acessarSintegra("26156450000161", "AM");
+		} catch (err) {
+			expect(err).toBeInstanceOf(Error);
+			expect(err).toHaveProperty("message", "Não há suporte ao Amazonas");
 		}
 	});
 });

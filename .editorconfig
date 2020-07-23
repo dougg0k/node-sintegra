@@ -10,3 +10,6 @@ end_of_line = lf
 
 [*.yml]
 indent_style = space
+
+[*.yaml]
+indent_style = space

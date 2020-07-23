@@ -20,6 +20,6 @@ export function validateCnpj(cnpj: string): void {
 		throw new Error("CNPJ não pode ser null ou undefined");
 	}
 	if (!isCnpjValid(cnpj)) {
-		throw new Error("CNPJ Invalido");
+		throw new Error("CNPJ Inválido");
 	}
 }

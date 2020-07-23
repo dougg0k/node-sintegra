@@ -1,6 +1,6 @@
 {
 	"name": "node-sintegra",
-	"version": "0.1.6",
+	"version": "0.1.7",
 	"description": "Biblioteca para fazer consulta do Sintegra por CNPJ e Estado",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
@@ -52,7 +52,7 @@
 	},
 	"config": {
 		"ghooks": {
-			"pre-commit": "npm version patch --no-git-tag-version && git add package.json && lint-staged"
+			"pre-commit": "npm version patch --no-git-tag-version && git add package* && lint-staged"
 		}
 	},
 	"lint-staged": {
