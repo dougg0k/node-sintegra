@@ -11,9 +11,6 @@ export async function acessarSintegra(
 	try {
 		estado = estado.toUpperCase();
 		switch (estado) {
-			case estados.SAO_PAULO.sigla:
-				const sintegraSP = await import("./sintegra/sintegraSP");
-				return sintegraSP.accessSintegra(cnpj);
 			case estados.ACRE.sigla:
 				throw new Error("Não há suporte ao Acre");
 			case estados.ALAGOAS.sigla:
@@ -62,6 +59,9 @@ export async function acessarSintegra(
 				throw new Error("Não há suporte ao Roraima");
 			case estados.SANTA_CATARINA.sigla:
 				throw new Error("Não há suporte ao Santa Catarina");
+			case estados.SAO_PAULO.sigla:
+				const sintegraSP = await import("./sintegra/sintegraSP");
+				return sintegraSP.accessSintegra(cnpj);
 			case estados.SERGIPE.sigla:
 				throw new Error("Não há suporte ao Sergipe");
 			case estados.TOCANTINS.sigla:

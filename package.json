@@ -10,7 +10,8 @@
 	"scripts": {
 		"start": "ts-node-dev --respawn --no-notify --pretty --no-deps --poll --watch src/ --ignore-watch node_modules src/index.ts",
 		"test": "jest --colors",
-		"build": "rimraf ./dist && tsc -b ./tsconfig.build.json"
+		"build": "rimraf ./dist && tsc -b ./tsconfig.build.json",
+		"increase:version": "npm version patch --no-git-tag-version && git add package*"
 	},
 	"keywords": [
 		"Sintegra",
@@ -52,7 +53,7 @@
 	},
 	"config": {
 		"ghooks": {
-			"pre-commit": "npm version patch --no-git-tag-version && git add package* && lint-staged"
+			"pre-commit": "lint-staged"
 		}
 	},
 	"lint-staged": {

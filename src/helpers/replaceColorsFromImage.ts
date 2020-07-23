@@ -5,7 +5,7 @@ import { isObjectEmpty } from "../utils/utils";
 export async function removeColorsFromImage(
 	imgPath: Buffer,
 	colorsToReplace: Array<{ targetColor: string; newColor: string }>,
-): Promise<any> {
+): Promise<Jimp> {
 	return colorsToReplace.reduce(async (acc: any, curr, index) => {
 		try {
 			if (index === 0) {

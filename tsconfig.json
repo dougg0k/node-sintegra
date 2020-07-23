@@ -5,7 +5,7 @@
 		"lib": ["ES2019"],
 		"sourceMap": true,
 		"outDir": "./build",
-		"rootDir": "./src",
+		"rootDir": ".",
 		"baseUrl": ".",
 		"moduleResolution": "node",
 		"removeComments": true,
