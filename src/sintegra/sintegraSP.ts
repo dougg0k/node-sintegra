@@ -7,7 +7,7 @@ import { removeColorsFromImage as overwriteColorsInImage } from "../helpers/repl
 import { setupBrowser, setupPage } from "../helpers/setupPuppeteer";
 import estados from "../utils/estados";
 import { isObjectEmpty } from "../utils/utils";
-import { Sintegra } from "./Sintegra";
+import { SintegraSP } from "./Sintegra";
 
 const NEXT_PAGE_CODE_SELECTOR =
 	"span#ctl00_conteudoPaginaPlaceHolder_lblCodigoControleCertidao";
@@ -40,7 +40,7 @@ const colorsToOverwrite = [
 	{ targetColor: "#FF0303", newColor: "#000000" },
 ];
 
-export async function accessSintegra(cnpj: string): Promise<Sintegra> {
+export async function fetchSintegra(cnpj: string): Promise<SintegraSP> {
 	const browser = await setupBrowser();
 	try {
 		const page = await setupPage(estados.SAO_PAULO.url, browser);
@@ -61,7 +61,7 @@ export async function accessSintegra(cnpj: string): Promise<Sintegra> {
 
 		await page.waitFor(NEXT_PAGE_CODE_SELECTOR);
 		const sintegra = await retrieveAndProcessValues(page);
-		return parseSintegraData(sintegra);
+		return buildData(sintegra);
 	} catch (err) {
 		throw err;
 	} finally {
@@ -131,26 +131,40 @@ async function submitResult(page: Page, text: string) {
 	await page.click(RESULT_BUTTON_SELECTOR);
 }
 
-function parseSintegraData(data) {
+function buildData(data) {
 	if (isObjectEmpty(data)) {
-		throw new Error("No data");
+		throw new Error("Sem dados");
 	}
-	const sintegra = {
-		...data,
-		numero: data.n,
-		municipio: data.municpio,
-		situacaoCadastral: data.situaoCadastral,
-		ocorrenciaFiscal: data.ocorrnciaFiscal,
-		regimeDeApuracao: data.regimeDeApurao,
-		atividadeEconomica: data.atividadeEconmica,
-		dataDaSituacaoCadastral: data.dataDaSituaoCadastral,
+	return {
+		estabelecimento: {
+			ie: data.ie,
+			cnpj: data.cnpj,
+			nomeEmpresarial: data.nomeEmpresarial,
+			nomeFantasia: data.nomeFantasia,
+			naturezaJurdica: data.naturezaJurdica,
+		},
+		endereco: {
+			logradouro: data.logradouro,
+			complemento: data.complemento,
+			cep: data.cep,
+			bairro: data.bairro,
+			numero: data.n,
+			municipio: data.municpio,
+			uf: data.uf,
+		},
+		informacoesComplementares: {
+			situacaoCadastral: data.situaoCadastral,
+			dataDaSituacaoCadastral: data.dataDaSituaoCadastral,
+			ocorrenciaFiscal: data.ocorrnciaFiscal,
+			regimeDeApuracao: data.regimeDeApurao,
+			atividadeEconomica: data.atividadeEconmica,
+			postoFiscal: data.postoFiscal,
+		},
+		informacoesNfe: {
+			dataDeCredenciamentoComoEmissorDeNFe:
+				data.dataDeCredenciamentoComoEmissorDeNFe,
+			indicadorDeObrigatoriedadeDeNFe: data.indicadorDeObrigatoriedadeDeNFe,
+			dataDeIncioDaObrigatoriedadeDeNFe: data.dataDeIncioDaObrigatoriedadeDeNFe,
+		},
 	};
-	delete sintegra.n;
-	delete sintegra.municpio;
-	delete sintegra.situaoCadastral;
-	delete sintegra.ocorrnciaFiscal;
-	delete sintegra.regimeDeApurao;
-	delete sintegra.atividadeEconmica;
-	delete sintegra.dataDaSituaoCadastral;
-	return sintegra;
 }

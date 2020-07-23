@@ -1,16 +1,3 @@
-/*
-	http://www.sintegra.gov.br/
-
-	(Lista) Estados possiveis (nao confirmados, mas possuem captchas que talvez o tornem possiveis):
-	Acre, Alagoas, Amapa, Bahia, Distrito Federal, Goias, Mato Grosso, Mato Grosso do Sul, Parana, Pernambuco, Rio de Janeiro, Rio Grande do Norte, Rondonia, Roraima, Santa Catarina, Sergipe.
-
-	(Lista) Com Google Recaptcha:
-	Amazonas, Ceara, Espirito Santo, Maranhao, Minas Gerais, Para, Paraiba, Piaui, Rio Grande do Sul, Tocantins, Suframa.
-
-	(Lista) Nao foi possivel:
-
-*/
-
 export default {
 	SAO_PAULO: {
 		sigla: "SP",

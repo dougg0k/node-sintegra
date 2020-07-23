@@ -4,13 +4,13 @@ import { validateCnpj, validateEstado } from "./utils/requestValidation";
 
 export async function acessarSintegra(
 	cnpj: string,
-	estado: string,
+	estadoSigla: string,
 ): Promise<Sintegra | null> {
-	validateEstado(estado);
+	validateEstado(estadoSigla);
 	validateCnpj(cnpj);
 	try {
-		estado = estado.toUpperCase();
-		switch (estado) {
+		estadoSigla = estadoSigla.toUpperCase();
+		switch (estadoSigla) {
 			case estados.ACRE.sigla:
 				throw new Error("Não há suporte ao Acre");
 			case estados.ALAGOAS.sigla:
@@ -61,7 +61,7 @@ export async function acessarSintegra(
 				throw new Error("Não há suporte ao Santa Catarina");
 			case estados.SAO_PAULO.sigla:
 				const sintegraSP = await import("./sintegra/sintegraSP");
-				return sintegraSP.accessSintegra(cnpj);
+				return sintegraSP.fetchSintegra(cnpj);
 			case estados.SERGIPE.sigla:
 				throw new Error("Não há suporte ao Sergipe");
 			case estados.TOCANTINS.sigla:
