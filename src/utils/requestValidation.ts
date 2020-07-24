@@ -10,7 +10,7 @@ export function validateEstado(estado: string): void {
 	if (estado.length !== 2) {
 		throw new Error("Utilize a sigla do estado");
 	}
-	if (!/^[A-Z]+$/.test(estado)) {
+	if (!/^[a-zA-Z]+$/.test(estado)) {
 		throw new Error("A sigla deve ser letras");
 	}
 }

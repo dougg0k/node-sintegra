@@ -30,7 +30,7 @@ export async function acessarSintegra(
 			case estados.ESPIRITO_SANTO.sigla:
 				throw new Error("Não há suporte ao Espirito Santo");
 			case estados.GOIAS.sigla:
-				throw new Error("Não há suporte ao Goias");
+				throw new Error("Não há suporte a Goias");
 			case estados.MARANHAO.sigla:
 				throw new Error("Não há suporte ao Maranhao");
 			case estados.MATO_GROSSO.sigla:
@@ -38,15 +38,15 @@ export async function acessarSintegra(
 			case estados.MATO_GROSSO_DO_SUL.sigla:
 				throw new Error("Não há suporte ao Mato Grosso do Sul");
 			case estados.MINAS_GERAIS.sigla:
-				throw new Error("Não há suporte ao Minas Gerais");
+				throw new Error("Não há suporte a Minas Gerais");
 			case estados.PARA.sigla:
 				throw new Error("Não há suporte ao Para");
 			case estados.PARAIBA.sigla:
-				throw new Error("Não há suporte ao Paraiba");
+				throw new Error("Não há suporte a Paraiba");
 			case estados.PARANA.sigla:
 				throw new Error("Não há suporte ao Parana");
 			case estados.PERNAMBUCO.sigla:
-				throw new Error("Não há suporte ao Pernambuco");
+				throw new Error("Não há suporte a Pernambuco");
 			case estados.PIAUI.sigla:
 				throw new Error("Não há suporte ao Piaui");
 			case estados.RIO_DE_JANEIRO.sigla:
@@ -56,18 +56,18 @@ export async function acessarSintegra(
 			case estados.RIO_GRANDE_DO_SUL.sigla:
 				throw new Error("Não há suporte ao Rio Grande do Sul");
 			case estados.RONDONIA.sigla:
-				throw new Error("Não há suporte ao Rondonia");
+				throw new Error("Não há suporte a Rondonia");
 			case estados.RORAIMA.sigla:
-				throw new Error("Não há suporte ao Roraima");
+				throw new Error("Não há suporte a Roraima");
 			case estados.SANTA_CATARINA.sigla:
-				throw new Error("Não há suporte ao Santa Catarina");
+				throw new Error("Não há suporte a Santa Catarina");
 			case estados.SAO_PAULO.sigla:
 				const sintegraSP = await import("./sintegra/sintegraSP");
 				return sintegraSP.fetchSintegra(cnpj);
 			case estados.SERGIPE.sigla:
-				throw new Error("Não há suporte ao Sergipe");
+				throw new Error("Não há suporte a Sergipe");
 			case estados.TOCANTINS.sigla:
-				throw new Error("Não há suporte ao Tocantins");
+				throw new Error("Não há suporte a Tocantins");
 			default:
 				return null;
 		}
