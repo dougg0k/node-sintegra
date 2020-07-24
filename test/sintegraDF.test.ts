@@ -23,7 +23,7 @@ describe("test sintegra df", () => {
 			},
 			informacoesComplementares: {
 				atividadePrincipal:
-					"E360060100 -  Captação, tratamento e distribuição de água",
+					"E360060100 - Captação, tratamento e distribuição de água",
 				atividadeSecundaria: "",
 				regimeDeApuracao: "Normal",
 				situacaoCadastral: "Ativo",

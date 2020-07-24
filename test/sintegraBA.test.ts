@@ -21,10 +21,10 @@ describe("test sintegra ba", () => {
 				telefone: "(73) 32815347",
 			},
 			informacoesComplementares: {
-				atividadeEconomica: "Comrcio varejista de produtos farmacuticos, sem",
+				atividadeEconomica: "Com�rcio varejista de produtos farmac�uticos, sem",
 				dataDaInscricaoEstadual: "03/08/1999",
 				usuarioSEPD: "------",
-				situacaoCadastralAtual: "N~ao Habilitado",
+				situacaoCadastralAtual: "Não Habilitado",
 				dataDestaSituacaoCadastral: "20/02/2013",
 				condicao: "NORMAL",
 				observacoes: "",

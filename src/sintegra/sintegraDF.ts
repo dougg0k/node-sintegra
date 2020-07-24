@@ -1,5 +1,5 @@
 import { Page } from "puppeteer";
-import { removeUnwantedCharacterFromText } from "../helpers/formatting";
+import { formatText } from "../helpers/formatting";
 import { extractText } from "../helpers/puppeteerHelper";
 import { setupBrowser, setupPage } from "../helpers/setupPuppeteer";
 import estados from "../utils/estados";
@@ -108,8 +108,8 @@ async function retrieveAndProcessValues(page: Page) {
 		municipio,
 		cep,
 		telefone,
-		atividadePrincipal: removeUnwantedCharacterFromText(atividadePrincipal),
-		atividadeSecundaria: removeUnwantedCharacterFromText(atividadeSecundaria),
+		atividadePrincipal: formatText(atividadePrincipal),
+		atividadeSecundaria: formatText(atividadeSecundaria),
 		regimeDeApuracao,
 		situacaoCadastral,
 		dataDessaSituacaoCadastral,

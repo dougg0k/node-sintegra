@@ -1,5 +1,5 @@
 import { Page } from "puppeteer";
-import { formatTextWithAsciiValues } from "../helpers/formatting";
+import { formatText } from "../helpers/formatting";
 import { extractText } from "../helpers/puppeteerHelper";
 import { setupBrowser, setupPage } from "../helpers/setupPuppeteer";
 import estados from "../utils/estados";
@@ -112,7 +112,7 @@ async function retrieveAndProcessValues(page: Page) {
 		regimeDeApuracaoDeICMS,
 	};
 	for (const [key, value] of Object.entries(result)) {
-		result[key] = formatTextWithAsciiValues(value);
+		result[key] = formatText(value);
 	}
 	return result;
 }
