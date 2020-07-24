@@ -14,11 +14,20 @@ export function formatObjKey(key: string): string {
 	return combination;
 }
 
-export function formatTextValue(text: string | null): string | null {
+export function formatTextWithAsciiValues(text: string | null): string | null {
 	if (!text || text.length < 1) {
 		return null;
 	}
 	const iconv = new Iconv.Iconv("UTF-8", "ASCII//TRANSLIT//IGNORE");
 	const cleanText = text.trim().replace(/\s{2,}/g, "");
 	return Buffer.from(iconv.convert(cleanText)).toString("utf-8");
+}
+
+export function removeUnwantedCharacterFromText(
+	text: string | null,
+): string | null {
+	if (!text || text.length < 1) {
+		return null;
+	}
+	return text.trim().replace(/\n/g, "").replace(/\t/g, "");
 }

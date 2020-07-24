@@ -8,5 +8,5 @@ export function isCnpjValid(cnpjNumber: string): boolean {
 }
 
 export function formatCnpj(cnpjNumber: string): string {
-	return cnpj.format(cnpjNumber);
+	return cnpjNumber.replace(/\D+/g, "");
 }

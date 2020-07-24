@@ -1,6 +1,6 @@
 import { Page } from "puppeteer";
+import { formatObjKey } from "../helpers/formatting";
 import { clearImage, getImageBuffer } from "../helpers/imageProcessing";
-import { formatObjKey } from "../helpers/objectFormatting";
 import { formatOCRResult, processOcr } from "../helpers/ocr";
 import { extractText } from "../helpers/puppeteerHelper";
 import { removeColorsFromImage as overwriteColorsInImage } from "../helpers/replaceColorsFromImage";

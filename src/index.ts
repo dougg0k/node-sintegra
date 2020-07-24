@@ -1,3 +1,4 @@
+import { formatCnpj } from "./helpers/cnpj";
 import { Sintegra } from "./sintegra/Sintegra";
 import estados from "./utils/estados";
 import { validateCnpj, validateEstado } from "./utils/requestValidation";
@@ -9,6 +10,7 @@ export async function acessarSintegra(
 	validateEstado(estadoSigla);
 	validateCnpj(cnpj);
 	try {
+		cnpj = formatCnpj(cnpj);
 		estadoSigla = estadoSigla.toUpperCase();
 		switch (estadoSigla) {
 			case estados.ACRE.sigla:
@@ -26,7 +28,8 @@ export async function acessarSintegra(
 			case estados.CEARA.sigla:
 				throw new Error("Não há suporte ao Ceara");
 			case estados.DISTRITO_FEDERAL.sigla:
-				throw new Error("Não há suporte ao Distrito Federal");
+				const sintegraDF = await import("./sintegra/sintegraDF");
+				return sintegraDF.fetchSintegra(cnpj);
 			case estados.ESPIRITO_SANTO.sigla:
 				throw new Error("Não há suporte ao Espirito Santo");
 			case estados.GOIAS.sigla:

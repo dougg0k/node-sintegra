@@ -1,5 +1,5 @@
 import { Page } from "puppeteer";
-import { formatTextValue } from "../helpers/objectFormatting";
+import { formatTextWithAsciiValues } from "../helpers/formatting";
 import { extractText } from "../helpers/puppeteerHelper";
 import { setupBrowser, setupPage } from "../helpers/setupPuppeteer";
 import estados from "../utils/estados";
@@ -33,9 +33,7 @@ export async function fetchSintegra(cnpj: string): Promise<SintegraBA> {
 				"pertence a uma empresa nÃ£o inscrita no Cadastro do ICMS do Estado da Bahia",
 			)
 		) {
-			throw new Error(
-				"Registro existe, mas não foi cadastrado no ICMS do Estado da Bahia",
-			);
+			throw new Error("Não foi cadastrado como contribuinte de ICMS");
 		}
 
 		await page.waitFor(NEXT_PAGE_CODE_SELECTOR);
@@ -114,7 +112,7 @@ async function retrieveAndProcessValues(page: Page) {
 		regimeDeApuracaoDeICMS,
 	};
 	for (const [key, value] of Object.entries(result)) {
-		result[key] = formatTextValue(value);
+		result[key] = formatTextWithAsciiValues(value);
 	}
 	return result;
 }

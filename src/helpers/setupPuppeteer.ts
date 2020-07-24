@@ -34,6 +34,18 @@ export async function setupBrowser(): Promise<Browser> {
 
 export async function setupPage(url: string, browser: Browser): Promise<Page> {
 	const [page] = await browser.pages();
+	await page.setRequestInterception(true);
+	page.on("request", (request) => {
+		if (
+			request.resourceType() === "image" ||
+			request.resourceType() === "stylesheet" ||
+			request.resourceType() === "font"
+		) {
+			request.abort();
+		} else {
+			request.continue();
+		}
+	});
 	await page.goto(url);
 	return page;
 }

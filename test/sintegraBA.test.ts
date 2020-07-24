@@ -47,7 +47,7 @@ describe("test sintegra ba", () => {
 			expect(err).toBeInstanceOf(Error);
 			expect(err).toHaveProperty(
 				"message",
-				"Registro existe, mas não foi cadastrado no ICMS do Estado da Bahia",
+				"Não foi cadastrado como contribuinte de ICMS",
 			);
 		}
 	});
