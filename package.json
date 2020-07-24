@@ -1,6 +1,6 @@
 {
 	"name": "node-sintegra",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Biblioteca para fazer consulta do Sintegra por CNPJ e Estado",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
@@ -25,6 +25,7 @@
 	},
 	"dependencies": {
 		"cpf-cnpj-validator": "^1.0.2",
+		"iconv": "^3.0.0",
 		"jimp": "^0.14.0",
 		"node-fetch": "^2.6.0",
 		"puppeteer": "^5.2.1",

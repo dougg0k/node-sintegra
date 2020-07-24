@@ -21,7 +21,8 @@ export async function acessarSintegra(
 			case estados.AMAZONAS.sigla:
 				throw new Error("Não há suporte ao Amazonas");
 			case estados.BAHIA.sigla:
-				throw new Error("Não há suporte ao Bahia");
+				const sintegraBA = await import("./sintegra/sintegraBA");
+				return sintegraBA.fetchSintegra(cnpj);
 			case estados.CEARA.sigla:
 				throw new Error("Não há suporte ao Ceara");
 			case estados.DISTRITO_FEDERAL.sigla:

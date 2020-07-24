@@ -21,7 +21,7 @@ const ERROR_LABEL_SELECTOR =
 	"span#ctl00_conteudoPaginaPlaceHolder_filtroTabContainer_filtroEmitirCertidaoTabPanel_MensagemErroFiltroLabel";
 const CAPTCHA_INPUT_SELECTOR =
 	"input#ctl00_conteudoPaginaPlaceHolder_filtroTabContainer_filtroEmitirCertidaoTabPanel_imagemDinamicaTextBox";
-const RESULT_BUTTON_SELECTOR =
+const FETCH_RESULT_BUTTON_SELECTOR =
 	"input#ctl00_conteudoPaginaPlaceHolder_filtroTabContainer_filtroEmitirCertidaoTabPanel_consultaPublicaButton";
 
 const getTableSelectorBy = (nthOfType: number) =>
@@ -128,7 +128,7 @@ async function processImage(page: Page) {
 async function submitResult(page: Page, text: string) {
 	await page.$eval(CAPTCHA_INPUT_SELECTOR, (el) => (el.value = ""));
 	await page.type(CAPTCHA_INPUT_SELECTOR, formatOCRResult(text));
-	await page.click(RESULT_BUTTON_SELECTOR);
+	await page.click(FETCH_RESULT_BUTTON_SELECTOR);
 }
 
 function buildData(data) {

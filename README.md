@@ -21,7 +21,7 @@ try {
 
 ---
 
-> Certos testes podem falhar em caso parte do sistema do sintegra em certo estado não estiver online, exemplo, as vezes o sistema demonstra apenas parte do resultado junto a uma mensagem avisando que parte do sistema esta com erro ou offline. Porem os resultados não disponiveis apenas voltam como `undefined`.
+> Certos testes podem falhar em caso parte do sistema do sintegra em certo estado não estiver online, exemplo, as vezes o sistema demonstra apenas parte do resultado junto a uma mensagem avisando que parte do sistema esta com erro ou offline. Porem os resultados não disponiveis apenas voltam como `null` ou `undefined`.
 
 > Resultados são diferentes para cada estado, veja a interface [Sintegra](https://github.com/dougg0k/node-sintegra/blob/master/src/sintegra/Sintegra.ts).
 
@@ -31,9 +31,9 @@ Lista de estados:
 
 - AC (não suportado, resultado em pdf)
 - AL
-- AP (não confirmado)
+- AP (não suportado, resultado em pdf)
 - AM (não suportado, contêm google recaptcha)
-- BA (não confirmado)
+- BA
 - CE (não suportado, contêm google recaptcha)
 - DF (não confirmado)
 - ES (não suportado, contêm google recaptcha)

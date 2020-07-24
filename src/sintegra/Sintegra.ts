@@ -1,4 +1,4 @@
-export type Sintegra = SintegraSP | SintegraAL;
+export type Sintegra = SintegraSP | SintegraAL | SintegraBA;
 
 export interface SintegraSP {
 	estabelecimento: {
@@ -76,4 +76,33 @@ export interface SintegraAL {
 	contribuinteRestricao: boolean;
 	indicadorMei: string;
 	regimesContribuinte: Array<any>;
+}
+
+export interface SintegraBA {
+	identificacao: {
+		cnpj: string;
+		ie: string;
+		razaoSocial: string;
+	};
+	endereco: {
+		logradouro: string;
+		numero: string;
+		complemento: string;
+		bairro: string;
+		uf: string;
+		municipio: string;
+		cep: string;
+		enderecoEletronico: string;
+		telefone: string;
+	};
+	informacoesComplementares: {
+		atividadeEconomica: string;
+		dataDaInscricaoEstadual: string;
+		usuarioSEPD: string;
+		situacaoCadastralAtual: string;
+		dataDestaSituacaoCadastral: string;
+		condicao: string;
+		observacoes: string;
+		regimeDeApuracaoDeICMS: string;
+	};
 }
