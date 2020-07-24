@@ -1,4 +1,4 @@
-export type Sintegra = SintegraSP;
+export type Sintegra = SintegraSP | SintegraAL;
 
 export interface SintegraSP {
 	estabelecimento: {
@@ -30,4 +30,50 @@ export interface SintegraSP {
 		indicadorDeObrigatoriedadeDeNFe: string;
 		dataDeIncioDaObrigatoriedadeDeNFe: string;
 	};
+}
+
+export interface SintegraAL {
+	numeroPessoa: number;
+	cnpj: string;
+	caceal: number;
+	digitoCaceal: number;
+	descricaoSituacaoCadastral: string;
+	descricaoMotivoSituacaoCadastral: string;
+	indicadorOpcaoSimples: string;
+	razaoSocial: string;
+	nomeFantasia: string;
+	tipoLogradouro: string;
+	logradouro: string;
+	numeroImovel: string;
+	bairro: string;
+	municipio: string;
+	uf: string;
+	cep: string;
+	dataInicioAtividade: string;
+	complemento: string;
+	indicadorSituacao: string;
+	enderecoEletronico: string;
+	atividadesContribuinte: Array<{
+		atividadeContribuinteId: {
+			caceal: number;
+			numeroPessoa: string;
+			sequencial: number;
+		};
+		cnpj: string;
+		codigoCnae: string;
+		descricao: string;
+		indicadorPrincipal: string;
+	}>;
+	telefone: string;
+	contribuinteObrigado: {
+		numeroCaceal: number;
+		dataInicioObrigatoriedade: number;
+		dataFinalObrigatoriedade: string;
+		cnpj: string;
+		observacao: string;
+	};
+	dataObrigatoriedade: string;
+	contribuinteRestricao: boolean;
+	indicadorMei: string;
+	regimesContribuinte: Array<any>;
 }

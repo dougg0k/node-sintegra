@@ -10,7 +10,8 @@ export default {
 	},
 	ALAGOAS: {
 		sigla: "AL",
-		url: "https://sintegra.sefaz.al.gov.br",
+		url:
+			"https://sintegra.sefaz.al.gov.br/sfz-sintegra-api/api/consultar/contribuinte",
 	},
 	AMAPA: {
 		sigla: "AP",

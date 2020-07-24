@@ -2,7 +2,7 @@
 
 ### Realize consultas no Sintegra dos estados suportados
 
-> O bypass do captcha é feito utilizando OCR com TesseractJs, porém o tempo de consulta e aleatório, por conta de que ao falhar em identificar as letras no captcha, uma nova tentativa é feita.
+> O bypass do captcha é feito utilizando OCR com TesseractJs, porém o tempo de consulta e aleatório, por conta de que ao falhar em identificar as letras no captcha, uma nova tentativa é feita. Porem nem todos possuem captchas.
 
 ```
 npm install node-sintegra
@@ -30,7 +30,7 @@ try {
 Lista de estados:
 
 - AC (não suportado, resultado em pdf)
-- AL (não confirmado)
+- AL
 - AP (não confirmado)
 - AM (não suportado, contêm google recaptcha)
 - BA (não confirmado)
@@ -53,6 +53,6 @@ Lista de estados:
 - RO (não confirmado)
 - RR (não confirmado)
 - SC (não confirmado)
-- SP (contêm suporte)
+- SP
 - SE (não confirmado)
 - TO (não suportado, contêm google recaptcha)
