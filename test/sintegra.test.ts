@@ -19,9 +19,13 @@ describe("test sintegra", () => {
 		}
 	});
 
-	test("invalid unknown estado sigla", async () => {
-		const result = await acessarSintegra("26156450000161", "SQ");
-		expect(result).toBeNull();
+	test("unknown estado sigla", async () => {
+		try {
+			await acessarSintegra("26156450000161", "SQ");
+		} catch (err) {
+			expect(err).toBeInstanceOf(Error);
+			expect(err).toHaveProperty("message", "Essa sigla não existe");
+		}
 	});
 
 	test("invalid registry", async () => {

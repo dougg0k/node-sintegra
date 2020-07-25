@@ -1,4 +1,9 @@
-export type Sintegra = SintegraSP | SintegraAL | SintegraBA | SintegraDF;
+export type Sintegra =
+	| SintegraSP
+	| SintegraAL
+	| SintegraBA
+	| SintegraDF
+	| SintegraGO;
 
 export interface SintegraSP {
 	estabelecimento: {
@@ -131,5 +136,40 @@ export interface SintegraDF {
 		situacaoCadastral: string;
 		dataDessaSituacaoCadastral: string;
 		situacaoSintegra: string;
+	};
+}
+
+export interface SintegraGO {
+	identificacaoContribuinte: {
+		cnpj: string;
+		ie: string;
+		nomeEmpresarial: string;
+		contribuinte: string;
+		nomeFantasia: string;
+	};
+	enderecoEstabelecimento: {
+		logradouro: string;
+		numero: string;
+		quadra: string;
+		lote: string;
+		complemento: string;
+		bairro: string;
+		municipio: string;
+		uf: string;
+		cep: string;
+	};
+	informacoesComplementares: {
+		atividadeEconomica: {
+			atividadePrincipal: string;
+			atividadeSecundaria: string;
+		};
+		unidadeAuxiliar: string;
+		condicaoDeUso: string;
+		dataFinalDeContrato: string;
+		regimeDeApuracao: string;
+		situacaoCadastralVigente: string;
+		dataDestaSituacaoCadastral: string;
+		dataDeCadastramento: string;
+		operacoesComNfe: string;
 	};
 }

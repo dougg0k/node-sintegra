@@ -37,7 +37,7 @@ Lista de estados:
 - CE (não suportado, contêm google recaptcha)
 - DF
 - ES (não suportado, contêm google recaptcha)
-- GO (não confirmado)
+- GO
 - MA (não suportado, contêm google recaptcha)
 - MT (não confirmado)
 - MS (não confirmado)

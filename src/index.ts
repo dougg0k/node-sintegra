@@ -33,7 +33,8 @@ export async function acessarSintegra(
 			case estados.ESPIRITO_SANTO.sigla:
 				throw new Error("Não há suporte ao Espirito Santo");
 			case estados.GOIAS.sigla:
-				throw new Error("Não há suporte a Goias");
+				const sintegraGO = await import("./sintegra/sintegraGO");
+				return sintegraGO.fetchSintegra(cnpj);
 			case estados.MARANHAO.sigla:
 				throw new Error("Não há suporte ao Maranhao");
 			case estados.MATO_GROSSO.sigla:
@@ -72,7 +73,7 @@ export async function acessarSintegra(
 			case estados.TOCANTINS.sigla:
 				throw new Error("Não há suporte a Tocantins");
 			default:
-				return null;
+				throw new Error("Essa sigla não existe");
 		}
 	} catch (err) {
 		throw err;
