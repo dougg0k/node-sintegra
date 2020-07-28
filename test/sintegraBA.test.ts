@@ -1,8 +1,8 @@
-import { acessarSintegra } from "../src";
+import { fetchSintegra } from "../src";
 
 describe("test sintegra ba", () => {
 	test("valid ba cnpj", async () => {
-		const result = await acessarSintegra("96835632000306", "BA");
+		const result = await fetchSintegra("96835632000306", "BA");
 		expect(result).toStrictEqual({
 			identificacao: {
 				cnpj: "96.835.632/0003-06",
@@ -34,7 +34,7 @@ describe("test sintegra ba", () => {
 	});
 	test("inexistent registry in ba", async () => {
 		try {
-			await acessarSintegra("63186456000108", "BA");
+			await fetchSintegra("63186456000108", "BA");
 		} catch (err) {
 			expect(err).toBeInstanceOf(Error);
 			expect(err).toHaveProperty("message", "Registro não existe");
@@ -42,7 +42,7 @@ describe("test sintegra ba", () => {
 	});
 	test("not registered in ba", async () => {
 		try {
-			await acessarSintegra("13937032000160", "BA");
+			await fetchSintegra("13937032000160", "BA");
 		} catch (err) {
 			expect(err).toBeInstanceOf(Error);
 			expect(err).toHaveProperty(

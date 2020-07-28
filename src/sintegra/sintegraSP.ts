@@ -1,9 +1,13 @@
 import { Page } from "puppeteer";
 import { formatObjKey } from "../helpers/formatting";
-import { clearImage, getImageBuffer } from "../helpers/imageProcessing";
+import {
+	applyFilters,
+	clearImage,
+	getImageBuffer,
+	replaceColorsFromImage,
+} from "../helpers/imageManipulation";
 import { formatOCRResult, processOcr } from "../helpers/ocr";
 import { extractText } from "../helpers/puppeteerHelper";
-import { removeColorsFromImage as overwriteColorsInImage } from "../helpers/replaceColorsFromImage";
 import { setupBrowser, setupPage } from "../helpers/setupPuppeteer";
 import estados from "../utils/estados";
 import { isObjectEmpty } from "../utils/utils";
@@ -79,8 +83,8 @@ async function setupInitialPart(page: Page, cnpj: string) {
 }
 
 async function processCaptcha(page: Page) {
-	const result = await processImage(page);
-	await submitResult(page, result.data.text);
+	const text = await processImage(page);
+	await submitResult(page, text);
 }
 
 async function getErrorLabelText(page: Page) {
@@ -90,7 +94,7 @@ async function getErrorLabelText(page: Page) {
 function getSetOfText(selector: string, page: Page) {
 	return page.$$eval(selector, (elements) =>
 		elements.map((el) => {
-			return [...el.children]
+			return [...(el.children as any)]
 				.filter((el) => el.innerText.trim().length > 0)
 				.map((el) => el.innerText);
 		}),
@@ -116,17 +120,21 @@ async function retrieveAndProcessValues(page: Page) {
 
 async function processImage(page: Page) {
 	await page.waitFor(CAPTCHA_IMG_SELECTOR);
-	const imgUrl = await page.$eval(CAPTCHA_IMG_SELECTOR, (node) => node?.src);
+	const imgUrl = await page.$eval(
+		CAPTCHA_IMG_SELECTOR,
+		(node: any) => node?.src,
+	);
 	const jimp = await clearImage(imgUrl.toString());
-	const clearedImg = await overwriteColorsInImage(
+	const clearedImg = await replaceColorsFromImage(
 		await getImageBuffer(jimp),
 		colorsToOverwrite,
 	);
-	return await processOcr(clearedImg);
+	const img = await applyFilters(await getImageBuffer(clearedImg));
+	return await processOcr(img, "0123456789abcdefghijklmnopqrstuvxzyw");
 }
 
 async function submitResult(page: Page, text: string) {
-	await page.$eval(CAPTCHA_INPUT_SELECTOR, (el) => (el.value = ""));
+	await page.$eval(CAPTCHA_INPUT_SELECTOR, (el: any) => (el.value = ""));
 	await page.type(CAPTCHA_INPUT_SELECTOR, formatOCRResult(text));
 	await page.click(FETCH_RESULT_BUTTON_SELECTOR);
 }

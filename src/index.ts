@@ -3,7 +3,7 @@ import { Sintegra } from "./sintegra/Sintegra";
 import estados from "./utils/estados";
 import { validateCnpj, validateEstado } from "./utils/requestValidation";
 
-export async function acessarSintegra(
+export async function fetchSintegra(
 	cnpj: string,
 	estadoSigla: string,
 ): Promise<Sintegra | null> {

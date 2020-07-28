@@ -3,7 +3,8 @@ export type Sintegra =
 	| SintegraAL
 	| SintegraBA
 	| SintegraDF
-	| SintegraGO;
+	| SintegraGO
+	| SintegraMS;
 
 export interface SintegraSP {
 	estabelecimento: {
@@ -172,4 +173,22 @@ export interface SintegraGO {
 		dataDeCadastramento: string;
 		operacoesComNfe: string;
 	};
+}
+
+export interface SintegraMS {
+	ie: string;
+	dataDeInicioDeAtividade: string;
+	cnpj: string;
+	razaoSocial: string;
+	descricaoDaAtividade: string;
+	logradouro: string;
+	numero: string;
+	complemento: string;
+	cep: string;
+	bairro: string;
+	municipio: string;
+	uf: string;
+	situacaoCadastral: string;
+	dataDaUltimaAtualizacao: string;
+	motivoDaSituacao: string;
 }

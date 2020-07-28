@@ -37,7 +37,7 @@ export default {
 	},
 	MATO_GROSSO_DO_SUL: {
 		sigla: "MS",
-		url: "http://www1.sefaz.ms.gov.br/Cadastro/sintegra/cadastromsCCI.asp",
+		url: "https://servicos.efazenda.ms.gov.br/consultacci",
 	},
 	PARANA: {
 		sigla: "PR",
